@@ -16,10 +16,12 @@ stylu do nazwy warstwy pochodzą z wtyczki zero2cadgis (GPL-2.0-or-later,
 from __future__ import annotations
 
 import re
+from contextlib import suppress
 from dataclasses import dataclass, field, replace
 from typing import Any, Dict, List, Optional
 
-from .katalog_pl import (
+# część stałych jest tu tylko re-eksportowana dla innych modułów
+from .katalog_pl import (       # noqa: F401
     KATALOG,
     GRUPA_NIEROZPOZNANE,
     RODZAJE,
@@ -365,6 +367,18 @@ def pick_label_field(qgis_layer: Any) -> Optional[str]:
     return None
 
 
+def _zapisz_w_dzienniku(wiadomosc: str) -> None:
+    """Wpisuje ostrzeżenie do dziennika QGIS (Widok → Panele → Komunikaty).
+
+    Poza QGIS-em (np. w testach) po prostu nic nie robi — brak dziennika
+    nie może wywrócić konwersji.
+    """
+    with suppress(Exception):
+        from qgis.core import Qgis, QgsMessageLog
+        QgsMessageLog.logMessage(wiadomosc, "Konwerter CAD na GIS",
+                                 Qgis.MessageLevel.Warning)
+
+
 def apply_plan_symbology(qgis_layer: Any, plan_scale: str = "1:1000",
                          override_rule: Optional[PlanStyleRule] = None,
                          plan_type: str = "AUTO",
@@ -432,8 +446,12 @@ def apply_plan_symbology(qgis_layer: Any, plan_scale: str = "1:1000",
             qgis_layer.setLabeling(
                 QgsVectorLayerSimpleLabeling(ustawienia))
             qgis_layer.setLabelsEnabled(True)
-        except Exception:
-            pass   # brak etykiet to nie powód, żeby przerywać
+        except Exception as blad:
+            # brak etykiet to nie powód, żeby przerywać całą symbolizację
+            # — zapisujemy powód w dzienniku QGIS i idziemy dalej
+            _zapisz_w_dzienniku(
+                f"Nie udało się włączyć etykiet dla warstwy "
+                f"\"{nazwa_warstwy}\": {blad}")
 
     with_repaint = getattr(qgis_layer, "triggerRepaint", None)
     if callable(with_repaint):

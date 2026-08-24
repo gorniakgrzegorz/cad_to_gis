@@ -184,7 +184,7 @@ class CadStylingEngine:
                     color_rgb = QColor(red, green, blue)
                     break
                 except ValueError:
-                    pass
+                    continue   # kolor nie do odczytania — bierzemy następny
 
         if not color_rgb:
             color_rgb = QColor(110, 110, 110)

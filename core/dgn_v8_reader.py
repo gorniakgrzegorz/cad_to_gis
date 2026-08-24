@@ -51,10 +51,10 @@ if os.path.isdir(_vendor_dir) and _vendor_dir not in sys.path:
 try:
     import olefile  # type: ignore[assignment]  # noqa: F811
 except ImportError:
-    try:
+    with contextlib.suppress(ImportError):
+        # kopia wbudowana w paczkę wtyczki; gdy i jej brak, olefile
+        # zostaje None, a DgnV8Reader zgłosi to czytelnym komunikatem
         from .._vendor import olefile  # type: ignore[no-redef,assignment]
-    except ImportError:
-        pass  # olefile stays None — is_dgn_v8 / DgnV8Reader will report it
 
 
 # ===================================================================

@@ -1128,10 +1128,10 @@ class GisConverterEngine:
         """Converts GIS layers to GPKG and returns list of loaded vector layers."""
         # Re-create target GPKG
         if os.path.exists(self.target_gpkg):
-            try:
+            # gdy pliku nie da się skasować (np. jest otwarty w QGIS),
+            # zapis i tak spróbuje go nadpisać
+            with contextlib.suppress(OSError):
                 os.remove(self.target_gpkg)
-            except OSError:
-                pass
 
         loaded_layers = []
         transform_context = QgsProject.instance().transformContext()

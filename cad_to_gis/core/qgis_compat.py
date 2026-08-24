@@ -8,39 +8,55 @@ from qgis.core import QgsWkbTypes
 
 
 def fix_mojibake(text: str | None) -> str:
-    """Repair Mojibake character corruptions and unescape DXF unicode escapes."""
+    """Naprawia "krzaki" w tekstach z rysunków CAD i rozwija zapisy DXF.
+
+    Rysunki bywają zapisane w starszych kodowaniach (CP1250, ISO-8859-2)
+    albo przechodzą przez podwójne kodowanie w drodze między programami.
+    Efekt: zamiast "Łąka" widzimy "Åka" albo "Ĺka". Ta funkcja próbuje
+    odwrócić taką zamianę i przywrócić polskie ogonki.
+    """
     if not text or not isinstance(text, str):
         return str(text) if text is not None else ""
 
-    # 1. Unescape DXF \U+XXXX / \u+XXXX unicode escapes (e.g. \U+015E -> Ş)
-    if "\\U+" in text or "\\u+" in text or r"\U+" in text or r"\u+" in text:
-        text = re.sub(r"\\?[Uu]\+([0-9A-Fa-f]{4})", lambda m: chr(int(m.group(1), 16)), text)
+    # 1. rozwinięcie zapisów DXF \U+XXXX / \u+XXXX (np. \U+0141 -> Ł)
+    if "\\U+" in text or "\\u+" in text:
+        text = re.sub(r"\\?[Uu]\+([0-9A-Fa-f]{4})",
+                      lambda m: chr(int(m.group(1), 16)), text)
 
-    # 2. Repair UTF-8 / CP1254 / CP1252 Mojibake sequences (e.g. Ã§ -> ç, Ã– -> Ö)
-    if any(c in text for c in ("Ã", "Â", "Å", "Ä", "Ã°", "Ã½", "â", "ï")):
-        for src_enc in ("latin1", "cp1252"):
-            for dst_enc in ("utf-8", "cp1254", "iso-8859-9"):
-                try:
-                    fixed = text.encode(src_enc).decode(dst_enc)
-                    if not any(c in fixed for c in ("Ã", "Â", "Å", "Ä", "â")):
-                        text = fixed
+    # 2. odwrócenie podwójnego kodowania: tekst w UTF-8 odczytany jako
+    #    latin1/CP1252 (najczęstszy przypadek) albo jako CP1250/ISO-8859-2
+    PODEJRZANE = ("Ã", "Â", "Å", "Ä", "Ĺ", "Ĺ¼", "Å¼", "â", "ï", "Ĺ›")
+    if any(c in text for c in PODEJRZANE):
+        for src_enc in ("latin1", "cp1252", "cp1250", "iso-8859-2"):
+            for dst_enc in ("utf-8", "cp1250", "iso-8859-2"):
+                with contextlib.suppress(UnicodeEncodeError,
+                                         UnicodeDecodeError):
+                    kandydat = text.encode(src_enc).decode(dst_enc)
+                    # przyjmujemy tylko wtedy, gdy krzaki zniknęły,
+                    # a tekst wygląda "po polsku" albo przynajmniej czysto
+                    if not any(c in kandydat for c in PODEJRZANE):
+                        text = kandydat
                         break
-                except (UnicodeEncodeError, UnicodeDecodeError):
-                    pass
+            else:
+                continue
+            break
 
-    # 3. Ostatnia deska ratunku: podmiana znaków dla uporczywych
-    #    podwójnych zakodowań (mojibake) w plikach z polskimi ogonkami
-    replacements = {
-        "Ã§": "ç", "Ã‡": "Ç",
-        "Ã¶": "ö", "Ã–": "Ö",
-        "Ã¼": "ü", "Ãœ": "Ü",
-        "ÅŸ": "ş", "ÅŞ": "Ş", "ÃŸ": "ş",
-        "ÄŸ": "ğ", "ÄĞ": "Ğ", "Ã°": "ğ",
-        "Ä±": "ı", "Ã½": "ı", "Ãİ": "İ",
+    # 3. ostatnia deska ratunku — najczęstsze pary "krzaków" dla polskich
+    #    znaków, gdy dekodowanie po kolei nie pomogło
+    PODMIANY = {
+        "Ä…": "ą", "Ä„": "Ą",
+        "Ä‡": "ć", "Ä†": "Ć",
+        "Ä™": "ę", "Ä˜": "Ę",
+        "Å‚": "ł", "Å": "Ł",
+        "Å„": "ń", "Åƒ": "Ń",
+        "Ã³": "ó", "Ã“": "Ó",
+        "Å›": "ś", "Åš": "Ś",
+        "Åº": "ź", "Å¹": "Ź",
+        "Å¼": "ż", "Å»": "Ż",
     }
-    for bad, good in replacements.items():
-        if bad in text:
-            text = text.replace(bad, good)
+    for krzak, poprawny in PODMIANY.items():
+        if krzak in text:
+            text = text.replace(krzak, poprawny)
 
     return text
 
@@ -184,7 +200,7 @@ def add_features_or_raise(layer, features: list, context: str = "Add features") 
                     new_f.setGeometry(g_copy)
                 coerced_features.append(new_f)
 
-            res2 = provider.addFeatures(coerced_features)
+            provider.addFeatures(coerced_features)
             layer.updateExtents()
             after2 = _feature_count(layer)
             if before is not None and after2 is not None:
