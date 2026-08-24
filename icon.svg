@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Ikona wtyczki "Konwerter CAD na GIS": rysunek CAD (kreski, kółka
+     konstrukcyjne) zamieniany strzałką w pokolorowaną mapę z warstwami
+     w barwach polskich oznaczeń planistycznych. © Grzegorz Górniak -->
+
+<svg
+   viewBox="0 0 64 64"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="icon.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="11.313709"
+     inkscape:cx="3.1377863"
+     inkscape:cy="50.602329"
+     inkscape:window-width="3840"
+     inkscape:window-height="2062"
+     inkscape:window-x="3830"
+     inkscape:window-y="-10"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5" />
+  <!-- kartka z rysunkiem CAD (lewa strona) -->
+  <!-- strzałka konwersji -->
+  <!-- warstwy mapy w kolorach polskich oznaczeń (prawa strona) -->
+  <path
+     id="rect7"
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#20c8df;stroke-width:0.175056;enable-background:accumulate;stop-color:#000000"
+     d="M 8.2953945,20.369608 H 55.846995 c 4.072258,0 7.350646,3.278388 7.350646,7.350645 v 8.918788 c 0,4.072258 -3.278388,7.350646 -7.350646,7.350646 H 8.2953945 c -4.0722576,0 -7.3506455,-3.278388 -7.3506455,-7.350646 v -8.918788 c 0,-4.072257 3.2783879,-7.350645 7.3506455,-7.350645 z" />
+  <path
+     id="rect29"
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#087a98;stroke-width:0.175056;enable-background:accumulate;stop-color:#000000"
+     d="M 7.7650658,1.4740376 H 56.377324 c 4.072257,0 7.350645,3.278388 7.350645,7.3506456 v 8.9187858 c 0,4.072258 -3.278388,7.350646 -7.350645,7.350646 H 7.7650658 c -4.0722576,0 -7.35064552,-3.278388 -7.35064552,-7.350646 V 8.8246832 c 0,-4.0722576 3.27838792,-7.3506456 7.35064552,-7.3506456 z" />
+  <g
+     fill="#ffffff"
+     id="g24"
+     transform="matrix(0.14391347,0,0,0.14391347,-87.837288,-76.220697)">
+    <!-- G -->
+    <!-- P -->
+    <!-- K -->
+    <!-- G -->
+  </g>
+  <path
+     d="m 17.61564,14.965172 4.24771,1.357624 q -0.427981,1.889361 -1.348139,3.156477 -0.920159,1.267117 -2.289698,1.911989 -1.358839,0.644872 -3.466644,0.644872 -2.557186,0 -4.183513,-0.780635 -1.6156272,-0.791947 -2.7925744,-2.771817 -1.1769472,-1.979868 -1.1769472,-5.068465 0,-4.1181282 2.0650073,-6.3242682 2.0757063,-2.2174536 5.8633363,-2.2174536 2.963768,0 4.654292,1.2671164 1.701223,1.2671163 2.525086,3.8918574 l -4.279807,1.006905 Q 17.209058,10.281367 16.96297,9.930647 16.556388,9.342343 15.967914,9.0255639 15.379441,8.7087848 14.651874,8.7087848 q -1.647727,0 -2.525088,1.4028792 -0.66337,1.040845 -0.66337,3.269612 0,2.760504 0.791765,3.790036 0.791764,1.018219 2.2255,1.018219 1.390937,0 2.097106,-0.825889 0.716868,-0.825889 1.037853,-2.39847 z m 16.737896,4.038933 h -5.520953 l -0.759666,2.737876 H 23.11904 L 29.014476,5.1563336 h 5.285563 L 40.195474,21.741981 H 35.123902 Z M 33.337082,15.417714 31.603759,9.4554784 29.881137,15.417714 Z M 42.296426,5.1563336 h 7.200777 q 2.129205,0 3.434546,0.6109312 1.316041,0.610931 2.172002,1.7535985 0.855962,1.1426674 1.241145,2.6586817 0.385182,1.516014 0.385182,3.213045 0,2.658681 -0.577773,4.129441 -0.567075,1.459447 -1.58353,2.455039 -1.016454,0.984278 -2.182701,1.31237 -1.594229,0.452541 -2.888871,0.452541 h -7.200777 z m 4.846882,3.7560949 v 9.0621445 h 1.187647 q 1.519332,0 2.161304,-0.35072 0.64197,-0.362032 1.005754,-1.244489 0.363784,-0.893769 0.363784,-2.884952 0,-2.636054 -0.813164,-3.6090191 Q 50.23547,8.9124285 48.352355,8.9124285 Z"
+     id="text5"
+     style="color:#000000;font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:22.7107px;line-height:0.9;font-family:Arial;-inkscape-font-specification:'Arial Heavy';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0.503px;word-spacing:-0.104819px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.992158;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000;stop-opacity:1"
+     aria-label="CAD" />
+  <path
+     id="rect6"
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#087a98;stroke-width:0.175056;enable-background:accumulate;stop-color:#000000"
+     d="M 7.7650658,39.498226 H 56.377324 c 4.072257,0 7.350645,3.278388 7.350645,7.350646 v 8.918786 c 0,4.072257 -3.278388,7.350645 -7.350645,7.350645 H 7.7650658 c -4.0722576,0 -7.35064552,-3.278388 -7.35064552,-7.350645 v -8.918786 c 0,-4.072258 3.27838792,-7.350646 7.35064552,-7.350646 z" />
+  <g
+     fill="#ffffff"
+     id="g6"
+     transform="matrix(0.14391347,0,0,0.14391347,-87.837288,-38.19651)">
+    <!-- G -->
+    <!-- P -->
+    <!-- K -->
+    <!-- G -->
+  </g>
+  <path
+     d="m 18.208999,52.692727 v -3.382209 h 7.762446 v 6.930756 q -2.228931,1.519221 -3.947758,2.073682 -1.707738,0.543371 -4.05865,0.543371 -2.894284,0 -4.724003,-0.98694 -1.81863,-0.986939 -2.827748,-2.93864 -0.998029,-1.951701 -0.998029,-4.48004 0,-2.66141 1.097832,-4.6242 1.097831,-1.973879 3.21587,-2.994086 1.652292,-0.787334 4.446773,-0.787334 2.694677,0 4.025382,0.487925 1.341795,0.487925 2.217842,1.519221 0.887137,1.020208 1.330705,2.594875 l -4.845984,0.864959 q -0.299409,-0.920405 -1.020207,-1.40833 -0.709709,-0.487925 -1.81863,-0.487925 -1.652292,0 -2.639232,1.153278 -0.97585,1.142188 -0.97585,3.626171 0,2.639231 0.986939,3.770331 0.998029,1.131099 2.772302,1.131099 0.84278,0 1.607936,-0.243963 0.765155,-0.243962 1.752095,-0.83169 v -1.530311 z m 11.44805,-10.36841 h 5.0345 v 16.25678 h -5.0345 z m 8.265445,10.878514 4.779449,-0.299409 q 0.155249,1.164367 0.632085,1.774273 0.776245,0.98694 2.217842,0.98694 1.075653,0 1.652292,-0.499015 0.587728,-0.510103 0.587728,-1.175456 0,-0.632085 -0.554461,-1.131099 -0.55446,-0.499014 -2.572696,-0.942583 -3.304584,-0.742977 -4.712914,-1.973879 -1.419418,-1.230902 -1.419418,-3.138246 0,-1.25308 0.720798,-2.362001 0.731888,-1.12001 2.184574,-1.752095 1.463776,-0.643174 4.003205,-0.643174 3.116067,0 4.746181,1.164367 1.641203,1.153277 1.951701,3.681617 l -4.735092,0.27723 q -0.188517,-1.097832 -0.798423,-1.596846 -0.598818,-0.499014 -1.663382,-0.499014 -0.876047,0 -1.319616,0.377033 -0.443568,0.365944 -0.443568,0.898226 0,0.388122 0.365944,0.69862 0.354855,0.321587 1.68556,0.598817 3.293495,0.709709 4.712913,1.441597 1.430508,0.720799 2.073682,1.796452 0.654264,1.075653 0.654264,2.406358 0,1.563579 -0.864959,2.883194 -0.864958,1.319616 -2.417447,2.007147 -1.552489,0.676442 -3.914491,0.676442 -4.147364,0 -5.74421,-1.596846 -1.596846,-1.596846 -1.807541,-4.05865 z"
+     id="text7"
+     style="font-weight:900;font-size:22.7107px;line-height:0.9;font-family:Arial;-inkscape-font-specification:'Arial Heavy';letter-spacing:0.503px;word-spacing:-0.104819px;fill:#ffffff;stroke-width:1.82909"
+     transform="scale(0.98017152,1.0202296)"
+     aria-label="GIS" />
+  <path
+     style="fill:#ffffff;stroke-width:0.0480081;stroke-linecap:round;stroke-linejoin:round"
+     d="m 41.998746,30.847069 c 0.08588,-0.67123 -0.50638,-1.257578 -1.261398,-1.248809 l -3.509726,0.04162 -0.09684,-5.23083 c -0.0064,-0.620991 -0.575744,-1.119142 -1.269726,-1.110957 l -9.185451,0.108893 c -0.689684,0.0082 -1.242101,0.513665 -1.235895,1.130814 l 0.09699,5.240672 -3.520727,0.04173 c -1.061334,0.01282 -1.624864,1.126783 -0.935386,1.849034 l 9.512577,9.960168 c 0.509053,0.532896 1.433547,0.521935 1.926335,-0.02284 l 9.2087,-10.182107 c 0.149644,-0.165552 0.243487,-0.365826 0.270549,-0.577388 z m -3.898765,1.024624 -6.580874,7.276597 -6.798207,-7.117987 2.096815,-0.02487 c 0.689684,-0.0082 1.242102,-0.513664 1.235896,-1.130812 l -0.09699,-5.240674 6.680075,-0.07919 0.09684,5.230828 c 0.0064,0.620957 0.575685,1.119091 1.269628,1.110955 z"
+     id="path56"
+     sodipodi:nodetypes="sccccccccccccsscccccccccc" />
+  <path
+     style="fill:#6bd273;stroke-width:0.0484458;stroke-linecap:round;stroke-linejoin:round"
+     d="m 40.219279,30.840579 -4.489536,0.05323 -0.158208,-6.223139 -8.649175,0.102536 0.158208,6.223141 -4.489537,0.05323 8.958568,9.46675 z"
+     id="path53"
+     sodipodi:nodetypes="cccccccc" />
+</svg>
