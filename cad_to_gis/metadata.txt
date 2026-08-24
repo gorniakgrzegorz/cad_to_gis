@@ -1,0 +1,71 @@
+[general]
+name=Konwerter CAD na GIS
+qgisMinimumVersion=3.22
+qgisMaximumVersion=4.99
+description=Konwersja rysunków AutoCAD DWG/DXF, DGN, GML, KML/KMZ, GeoJSON, CSV/TSV, SpatiaLite, GPX, geobaz GDB i MS Access do warstw GeoPackage z gotową polską symbolizacją planistyczną (MPZP, plan ogólny, GESUT, EGiB) oraz eksport z QGIS do DXF, GML, KML i KMZ. / Converts CAD and GIS datasets into styled GeoPackage layers with Polish planning symbology, and exports back to DXF, GML, KML and KMZ (Polish UI).
+about=*** ENG description below ***
+    .
+    NARZĘDZIE W CAŁOŚCI PO POLSKU
+    Wtyczka zamienia rysunki CAD i pliki wymiany danych na gotowe warstwy QGIS — od razu pokolorowane zgodnie z polskimi przepisami planistycznymi i geodezyjnymi. Nie wymaga żadnych dodatkowych programów ani kont: wszystko robi sama, na tym, co jest w QGIS-ie.
+    .
+    CO WCZYTUJE:
+    - rysunki AutoCAD DXF (*.dxf) i DWG (*.dwg),
+    - Microstation DGN (także wersję 8, własnym czytnikiem),
+    - GML — w tym zbiory danych przestrzennych aktów planowania przestrzennego (APP) i dane z usług INSPIRE,
+    - KML, KMZ, GeoJSON,
+    - CSV/TSV z automatycznym wykrywaniem kolumn X/Y albo geometrii WKT,
+    - SpatiaLite/SQLite, GPX, geobazy ArcGIS (.gdb) i bazy MS Access.
+    .
+    CO ZAPISUJE:
+    - GeoPackage (.gpkg) — jeden plik z wszystkimi warstwami i symbolizacją,
+    - warstwy tymczasowe albo podgląd na żywo, bez konwersji,
+    - eksport w drugą stronę: warstwa z QGIS do DXF (powrót do CAD-a), GML 3.2 (wymiana danych, INSPIRE, APP — razem z plikiem schematu .xsd), KML i KMZ.
+    .
+    POLSKA SYMBOLIZACJA (nadawana automatycznie):
+    - MPZP — przeznaczenia terenów wg rozporządzenia Ministra Infrastruktury z 26 sierpnia 2003 r. w sprawie wymaganego zakresu projektu miejscowego planu (MN, MW, U, US, UC, P, R, RM, ZL, ZP, WS, KD, KDW i pozostałe), z kreskowaniami dla oznaczeń mieszanych,
+    - PLAN OGÓLNY GMINY — 13 stref planistycznych (SW, SJ, SZ, SU, SH, SP, SR, SI, SN, SC, SG, SO, SK) w kolorach RGB podanych wprost w rozporządzeniu Ministra Rozwoju i Technologii z 8 grudnia 2023 r. (Dz.U. 2023 poz. 2758, zał. nr 2), wraz z obszarami POG, OSD, OZS i OUZ,
+    - GESUT / mapa zasadnicza — sieci uzbrojenia terenu w barwach branżowych (wodociągowa niebieska, kanalizacyjna brązowa, gazowa żółtooliwkowa, elektroenergetyczna czerwona, ciepłownicza fioletowa, telekomunikacyjna pomarańczowa),
+    - EGiB — działki, budynki, użytki, osnowa, granice obrębów i granice administracyjne.
+    .
+    JAK PRACUJE:
+    - przeciągnij plik na panel albo wskaż go przyciskiem,
+    - obejrzyj listę warstw w pliku i odznacz to, czego nie potrzebujesz,
+    - wybierz układ współrzędnych — wtyczka sama rozpoznaje polskie układy państwowe (PUWG 2000 strefy 5-8, PUWG 1992, WGS 84) po samych współrzędnych,
+    - wskaż rodzaj opracowania (MPZP, plan ogólny, GESUT, EGiB) albo zostaw rozpoznawanie automatyczne,
+    - warstwy dostają polskie kolumny SYMBOL, PRZEZNACZENIE, GRUPA, RODZAJ_DOK, OZNACZENIE i WARSTWA_CAD.
+    .
+    DODATKOWO: upraszczanie współliniowych geometrii CAD, czyszczenie zdublowanych punktów, rozbijanie rysunku na osobne warstwy wg nazw warstw CAD, zachowanie kolorów z rysunku, wyodrębnianie podkładów rastrowych z KML, zapamiętywanie ustawień i folderów.
+    .
+    WYMAGANIA: QGIS 3.22 lub nowszy — i nic więcej. Rysunki DWG czytamy wbudowanym w QGIS sterownikiem CAD (starsze zapisy, do R2000); nowszy plik DWG wystarczy zapisać w CAD-zie jako DXF.
+    .
+    Wtyczka powstała na bazie zero2cadgis (GPL-2.0-or-later, © Yusuf Eminoğlu) — wykaz zmian w pliku ATRYBUCJA.md.
+    .
+    *** ENGLISH (SHORT) ***
+    Polish-language QGIS plugin that converts AutoCAD DXF/DWG, Microstation DGN, GML, KML/KMZ, GeoJSON, CSV/TSV, SpatiaLite, GPX, ArcGIS File Geodatabase and MS Access datasets into GeoPackage layers, and exports QGIS layers back to DXF, GML 3.2, KML and KMZ. No external tools, accounts or API keys are required. Imported planning and survey layers are automatically styled according to Polish regulations: local plan (MPZP) land-use designations, the 13 planning zones of the municipal general plan with the exact RGB values of the 2023 regulation, utility networks (GESUT) in their statutory branch colours, and cadastral (EGiB) layers. Polish national coordinate systems (PUWG 2000 zones 5-8, PUWG 1992) are recognised from the coordinates themselves. Layers receive Polish attribute columns. Based on the zero2cadgis plugin (GPL-2.0-or-later) — see ATRYBUCJA.md.
+version=1.1.0
+author=Grzegorz Górniak
+email=gorniakgrzegorz@gmail.com
+category=Vector
+changelog=1.1.0
+    - Removed the Netcad NCZ/NCA import module — the format is not used in Poland
+    - Removed the dependency on the external ODA File Converter and dwg2dxf: the plugin no longer launches any program outside QGIS
+    - Added GML 3.2 export, including the accompanying .xsd schema file
+    - Added GDAL settings that improve reading of Polish GML datasets (APP spatial data sets, INSPIRE services)
+    - Rewritten coordinate reference system detection for Polish national systems (PUWG 2000 zones 5-8, PUWG 1992, WGS 84); the previous version guessed Turkish CRS codes
+    - Document type picker and Polish attribute columns moved to the conversion tab
+    - New icons, author signature, remaining English strings translated
+    1.0.0 (pierwsza wersja / first release)
+    - Polish fork of zero2cadgis: fully Polish user interface, messages and documentation
+    - Turkish e-Plan / MPYY symbology catalogs replaced with a Polish catalog: MPZP land-use designations, general plan zones (exact RGB from Dz.U. 2023 poz. 2758), GESUT utility networks and EGiB cadastral layers
+    - Polish attribute columns (SYMBOL, PRZEZNACZENIE, GRUPA, RODZAJ_DOK, OZNACZENIE, WARSTWA_CAD)
+    - Fixed a Python 3.12-only f-string so the plugin also loads on QGIS builds with older Python
+    - Plugin package trimmed from 7.2 MB to under 1 MB
+tags=cad,dwg,dxf,gpkg,geopackage,gml,konwerter,konwersja,mpzp,plan ogolny,plan miejscowy,planowanie przestrzenne,geodezja,gesut,egib,mapa zasadnicza,symbolizacja,kml,kmz,geojson,csv,dgn,gdb,spatialite,gpx,inspire,app,import,eksport,puwg
+homepage=https://github.com/gorniakgrzegorz/cad_to_gis
+tracker=https://github.com/gorniakgrzegorz/cad_to_gis/issues
+repository=https://github.com/gorniakgrzegorz/cad_to_gis
+icon=icon.png
+experimental=False
+deprecated=False
+license=GPL-2.0-or-later
+hasProcessingProvider=no
