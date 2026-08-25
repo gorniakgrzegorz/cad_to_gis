@@ -6,8 +6,7 @@ planistycznymi i geodezyjnymi.
 
 **Autor wersji polskiej:** Grzegorz Górniak (gorniakgrzegorz@gmail.com)
 **Licencja:** GPL-2.0-or-later
-**Na bazie:** wtyczki zero2cadgis © Yusuf Eminoğlu — wykaz zmian
-w pliku [ATRYBUCJA.md](ATRYBUCJA.md)
+
 
 ---
 
